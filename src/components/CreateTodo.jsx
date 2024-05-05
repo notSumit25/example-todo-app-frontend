@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export function CreateTodo() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
   const handleSubmit = () => {
     fetch("http://localhost:3000/todo", {
       method: "POST",
@@ -19,32 +20,50 @@ export function CreateTodo() {
       });
   };
 
+  const styles = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '10px',
+      border: '1px solid #ddd',
+      margin: '10px',
+      borderRadius: '5px',
+    },
+    input: {
+      margin: '10px 0',
+      padding: '10px',
+      width: '80%',
+      borderRadius: '5px',
+    },
+    button: {
+      backgroundColor: 'blue',
+      color: 'white',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+    },
+  };
+
   return (
-    <div>
+    <div style={styles.container}>
       <input
         value={title}
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
+        onChange={(e) => setTitle(e.target.value)}
         type="text"
         placeholder="title"
-        style={{ backgroundColor: "lightblue", color: "white" }}
+        style={{ ...styles.input, backgroundColor: "lightblue", color: "white" }}
       />
-      <br />
       <input
         value={description}
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
+        onChange={(e) => setDescription(e.target.value)}
         type="text"
         placeholder="description"
-        style={{ backgroundColor: "lightgreen", color: "black" }}
+        style={{ ...styles.input, backgroundColor: "lightgreen", color: "black" }}
       />
-      <br />
-      <button
-        onClick={handleSubmit}
-        style={{ backgroundColor: "blue", color: "white" }}
-      >
+      <button onClick={handleSubmit} style={styles.button}>
         Add Todo
       </button>
     </div>

@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const CreateTodo = () => {
-  return (
-    <div>
-      <input type="text" placeholder='title' />
-      <input type="text" placeholder='description' />
-        <button>Add Todo</button>
-    </div>
-  )
+export function CreateTodo() {
+    return (
+        <div>
+            <input type="text" placeholder='title' style={{ backgroundColor: 'lightblue', color: 'white' }} />
+            <input type="text" placeholder='description' style={{ backgroundColor: 'lightgreen', color: 'black' }} />
+            <button style={{ backgroundColor: 'blue', color: 'white' }}>Add Todo</button>
+        </div>
+    );
 }
-
-export default CreateTodo
